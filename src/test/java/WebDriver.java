@@ -40,7 +40,43 @@ public class WebDriver {
                    "        Вход\n" +
                    "    ",textButtonEnter.getText());
 
-       }}
+       }
+
+       @Test
+    public void testOnlinerLoginFormWithEmptyCredentials(){
+           org.openqa.selenium.WebDriver driver = new SafariDriver();
+           driver.get(OnlinerPage.BASE_URL);
+           driver.manage().window().maximize();
+           driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1));
+           WebElement enterElement = driver.findElement(By.xpath(OnlinerPage.BTN_ENTER));
+           enterElement.click();
+           try{
+              Thread.sleep(1000);
+           }catch (InterruptedException e) {
+               throw new RuntimeException(e);
+           }
+           WebElement buttonLogin=driver.findElement(By.xpath(OnlinerPage.BTN_LOGIN));
+           buttonLogin.click();
+           try{
+               Thread.sleep(1000);
+           }catch (InterruptedException e) {
+               throw new RuntimeException(e);
+           }
+           WebElement errorNick= driver.findElement(By.xpath(OnlinerPage.ERROR_NICK));
+           Assert.assertEquals("\n" +
+                   "                    Укажите ник или e-mail\n" +
+                   "                ",errorNick.getText());
+           WebElement errorPassword=driver.findElement((By.xpath(OnlinerPage.ERROR_PASSWORD)));
+           Assert.assertEquals("\n" +
+                   "                    Укажите пароль\n" +
+                   "                ", errorPassword.getText());
+           driver.quit();
+
+       }
+
+
+
+}
 
 
 

@@ -6,6 +6,12 @@ public class OnlinerPage {
 
         public static final String BTN_ENTER_TEXT="//*[@id=\"auth-container\"]/div/div[2]/div/div[1]";
 
+        public static final String BTN_LOGIN="//*[@id=\"auth-container\"]/div/div[2]/div/form/div[3]/button";
+
+        public static final String ERROR_NICK="//*[@id=\"auth-container\"]/div/div[2]/div/form/div[1]/div/div[2]/div/div/div[2]/div";
+
+        public static final String ERROR_PASSWORD="//*[@id=\"auth-container\"]/div/div[2]/div/form/div[2]/div/div/div[2]/div";
+
 
 
 
