@@ -12,7 +12,10 @@ public class OnlinerPage{
 
         public static final String FOOTER_LOGO="div[class=\"footer-style__logo\"]";
 
-        public static final String FOOTER_COPYRIGHT="div[class=\"footer-style__copy\"]";
+       /* public static final String FOOTER_COPYRIGHT="div[class=\"footer-style__copy\"]";*/
+
+        public static final String FOOTER_COPYRIGHT="/html/body/div[4]/footer/div/div/div/div[2]/div[2]";
+
 
 
         /*public static final String FOOTER_COPYRIGHT="/html/body/div[4]/footer/div/div/div/div[2]/div[2]";*/
