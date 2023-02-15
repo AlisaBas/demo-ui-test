@@ -16,11 +16,9 @@ public class WebDriver {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1));
         driver.get(OnlinerPage.BASE_URL);
-
         String actualFooterCoopyright = driver.findElement(By.xpath(OnlinerPage.FOOTER_COPYRIGHT)).getText();
         Assert.assertEquals("\n" +
                 "                © 2001—2023 Onlíner            ",actualFooterCoopyright);
-
         driver.quit();
     }
 
@@ -50,18 +48,15 @@ public class WebDriver {
            driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1));
            WebElement enterElement = driver.findElement(By.xpath(OnlinerPage.BTN_ENTER));
            enterElement.click();
-           try{
-              Thread.sleep(1000);
-           }catch (InterruptedException e) {
-               throw new RuntimeException(e);
-           }
-           WebElement buttonLogin=driver.findElement(By.xpath(OnlinerPage.BTN_LOGIN));
-           buttonLogin.click();
-           try{
+           Util.waitThreadFor(1);
+           /* try{
                Thread.sleep(1000);
            }catch (InterruptedException e) {
                throw new RuntimeException(e);
-           }
+           }*/
+           WebElement buttonLogin=driver.findElement(By.xpath(OnlinerPage.BTN_LOGIN));
+           buttonLogin.click();
+          Util.waitThreadFor(1);
            WebElement errorNick= driver.findElement(By.xpath(OnlinerPage.ERROR_NICK));
            Assert.assertEquals("\n" +
                    "                    Укажите ник или e-mail\n" +
@@ -73,6 +68,32 @@ public class WebDriver {
            driver.quit();
 
        }
+
+       @Test
+    public void testOnlinerLoginFormWithEmptyPassword(){
+           org.openqa.selenium.WebDriver driver = new SafariDriver();
+           driver.get(OnlinerPage.BASE_URL);
+           driver.manage().window().maximize();
+           driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1));
+           WebElement enterElement = driver.findElement(By.xpath(OnlinerPage.BTN_ENTER));
+           enterElement.click();
+           Util.waitThreadFor(1);
+           WebElement emailField=driver.findElement(By.xpath(OnlinerPage.EMAIL_FIELD));
+           emailField.sendKeys(OnlinerPage.ONLINER_LOGIN);
+           WebElement buttonLogin=driver.findElement(By.xpath(OnlinerPage.BTN_LOGIN));
+           buttonLogin.click();
+           Util.waitThreadFor(1);
+           WebElement errorPassword=driver.findElement((By.xpath(OnlinerPage.ERROR_PASSWORD)));
+           Assert.assertEquals("\n" +
+                   "                    Укажите пароль\n" +
+                   "                ", errorPassword.getText());
+           driver.quit();
+
+
+
+       }
+
+
 
 
 
