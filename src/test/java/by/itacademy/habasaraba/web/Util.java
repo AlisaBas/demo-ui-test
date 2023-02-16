@@ -1,3 +1,5 @@
+package by.itacademy.habasaraba.web;
+
 public class Util {
     public static void waitThreadFor(int seconds) {
         try {

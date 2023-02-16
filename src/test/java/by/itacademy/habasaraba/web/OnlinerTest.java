@@ -1,14 +1,14 @@
+package by.itacademy.habasaraba.web;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriverInfo;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
-public class WebDriver {
+public class OnlinerTest {
 
     @Test
     public void testOnlinerOpen(){

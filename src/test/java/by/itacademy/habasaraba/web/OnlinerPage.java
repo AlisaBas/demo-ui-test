@@ -1,3 +1,5 @@
+package by.itacademy.habasaraba.web;
+
 public class OnlinerPage {
         public static final String BASE_URL = "https://www.onliner.by";
 
@@ -12,14 +14,6 @@ public class OnlinerPage {
 
         public static final String ERROR_PASSWORD="//*[@id=\"auth-container\"]/div/div[2]/div/form/div[2]/div/div/div[2]/div";
         public static final String EMAIL_FIELD="//*[@id=\"auth-container\"]/div/div[2]/div/form/div[1]/div/div[2]/div/div/div[1]/div/input";
-
-
-
-
-        public static final String EMAIL = "//*[@id=\"auth-container\"]/div/div[2]/div/form/div[1]/div/div[2]/div/div/div[1]/div/input";
-
-        public static final String PASSWORD = "//*[@id=\"auth-container\"]/div/div[2]/div/form/div[2]/div/div/div[1]/div/input";
-
         public static final String ONLINER_LOGIN="alisa.basaraba@icloud.com";
 
        /* public static final String BTN_ENT = "//*[@id=\"auth-container\"]/div/div[2]/div/form/div[3]/button";
