@@ -12,6 +12,12 @@ public class AmazonPage {
     public static final String CONTINUE_BTN="//*[@id=\"continue\"]";
     public static final String ENTER_YOUR_EMAIL_TEXT="//*[@id=\"auth-email-missing-alert\"]/div/div";
 
+    public static final String EMAIL_OR_MOBILE_FIELD="//*[@id=\"ap_email\"]";
+
+    public static final String PASSWORD_FIELD="//*[@id=\"ap_password\"]";
+    public static final String SIGN_IN_SUBMIT="//*[@id=\"signInSubmit\"]";
+    public static final String HELLO_USER="//*[@id=\"nav-link-accountList-nav-line-1\"]";
+
 
 
 }
