@@ -55,6 +55,30 @@ public class AmazonTest {
         driver.quit();
     }
 
+    @Test
+    public void testAmazonLoginFormWithEmptyCredentials(){
+        org.openqa.selenium.WebDriver driver=new SafariDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1));
+        driver.get(AmazonPage.AMAZON_URL);
+        Util.waitThreadFor(1);
+        WebElement cartButtonElement=driver.findElement(By.xpath(AmazonPage.AMAZON_CART_BTN));
+        cartButtonElement.click();
+        Util.waitThreadFor(1);
+        WebElement signInButtonElement=driver.findElement(By.xpath(AmazonPage.SIGN_IN_BTN));
+        signInButtonElement.click();
+        Util.waitThreadFor(1);
+        WebElement continueButtonElement=driver.findElement(By.xpath(AmazonPage.CONTINUE_BTN));
+        Util.waitThreadFor(1);
+        continueButtonElement.click();
+        String enterYourEmail=driver.findElement(By.xpath(AmazonPage.ENTER_YOUR_EMAIL_TEXT)).getText();
+        Util.waitThreadFor(1);
+        Assert.assertEquals("\n" +
+                "  Enter your email or mobile phone number\n",enterYourEmail );
+        driver.quit();
+
+    }
+
 
 
 }

@@ -9,6 +9,8 @@ public class AmazonPage {
     public static final String SIGN_IN_BTN="//*[@id=\"a-autoid-1\"]";
 
     public static final String SIGN_IN_TEXT="//*[@id=\"authportal-main-section\"]/div[2]/div/div[1]/form/div/div/div/h1";
+    public static final String CONTINUE_BTN="//*[@id=\"continue\"]";
+    public static final String ENTER_YOUR_EMAIL_TEXT="//*[@id=\"auth-email-missing-alert\"]/div/div";
 
 
 
