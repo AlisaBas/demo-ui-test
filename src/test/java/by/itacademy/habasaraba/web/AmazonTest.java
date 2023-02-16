@@ -20,5 +20,20 @@ public class AmazonTest {
         driver.quit();
     }
 
+    @Test
+    public void testOpenAmazonCart(){
+        org.openqa.selenium.WebDriver driver=new SafariDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1));
+        driver.get(AmazonPage.AMAZON_URL);
+        WebElement cartButtonElement=driver.findElement(By.xpath(AmazonPage.AMAZON_CART_BTN));
+        cartButtonElement.click();
+        Util.waitThreadFor(1);
+        String emptyButtonText=driver.findElement(By.xpath(AmazonPage.EMPTY_CART_TEXT)).getText();
+        Assert.assertEquals("\n" +
+                "Your Amazon Cart is empty\n",emptyButtonText);
+        driver.quit();
+    }
+
 
 }
