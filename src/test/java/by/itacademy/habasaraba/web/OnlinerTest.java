@@ -87,28 +87,23 @@ public class OnlinerTest {
                    "                ", errorPassword.getText());
 
     }
-/*
+
     @Test
     public void testOnlinerLoginFormWithEmptyNick(){
-        org.openqa.selenium.WebDriver driver=new SafariDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1));
-        driver.get(OnlinerPage.BASE_URL);
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1));
         WebElement enterElement = driver.findElement(By.xpath(OnlinerPage.BTN_ENTER));
         enterElement.click();
         Util.waitThreadFor(1);
-        WebElement emailField=driver.findElement(By.xpath(OnlinerPage.EMAIL_FIELD));
-        emailField.sendKeys(OnlinerPage.ONLINER_LOGIN);
+        WebElement emailField=driver.findElement(By.xpath(OnlinerPage.PASSWORD_FIELD));
+        emailField.sendKeys(OnlinerPage.ONLINER_PASSWORD);
         WebElement buttonLogin=driver.findElement(By.xpath(OnlinerPage.BTN_LOGIN));
         buttonLogin.click();
         Util.waitThreadFor(1);
-        WebElement errorPassword=driver.findElement((By.xpath(OnlinerPage.ERROR_PASSWORD)));
+        WebElement errorPassword=driver.findElement((By.xpath(OnlinerPage.ERROR_NICK)));
         Assert.assertEquals("\n" +
-                "                    Укажите пароль\n" +
+                "                    Укажите ник или e-mail\n" +
                 "                ", errorPassword.getText());
 
-    }*/
+    }
    @After
     public void tearDown(){
         driver.quit();

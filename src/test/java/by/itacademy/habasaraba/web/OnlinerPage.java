@@ -14,7 +14,11 @@ public class OnlinerPage {
 
         public static final String ERROR_PASSWORD="//*[@id=\"auth-container\"]/div/div[2]/div/form/div[2]/div/div/div[2]/div";
         public static final String EMAIL_FIELD="//*[@id=\"auth-container\"]/div/div[2]/div/form/div[1]/div/div[2]/div/div/div[1]/div/input";
+        public static final String PASSWORD_FIELD="//*[@id=\"auth-container\"]/div/div[2]/div/form/div[2]/div/div/div/div/input";
         public static final String ONLINER_LOGIN="alisa.basaraba@icloud.com";
+
+        public static final String ONLINER_PASSWORD="12345";
+
 
        /* public static final String BTN_ENT = "//*[@id=\"auth-container\"]/div/div[2]/div/form/div[3]/button";
        public static final String LOGO = "//img[@class=\"onliner_logo\"]";
