@@ -3,7 +3,7 @@ package by.itacademy.habasaraba.web;
 public class OnlinerPage {
         public static final String BASE_URL = "https://www.onliner.by";
 
-        public static final String FOOTER_COPYRIGHT = "/html/body/div[4]/footer/div/div/div/div[2]/div[2]";
+        public static final String FOOTER_COPYRIGHT = "/html/body/div[1]/footer/div/div/div/div[2]/div[2]";
         public static final String BTN_ENTER = "//*[@id=\"userbar\"]/div[1]/div/div/div[1]";
 
         public static final String BTN_ENTER_TEXT="//*[@id=\"auth-container\"]/div/div[2]/div/div[1]";
