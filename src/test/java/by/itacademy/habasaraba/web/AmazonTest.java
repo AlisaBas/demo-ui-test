@@ -35,5 +35,26 @@ public class AmazonTest {
         driver.quit();
     }
 
+    @Test
+    public void testOpenAmazonLoginForm(){
+        org.openqa.selenium.WebDriver driver=new SafariDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1));
+        driver.get(AmazonPage.AMAZON_URL);
+        Util.waitThreadFor(1);
+        WebElement cartButtonElement=driver.findElement(By.xpath(AmazonPage.AMAZON_CART_BTN));
+        cartButtonElement.click();
+        Util.waitThreadFor(1);
+        WebElement signInButtonElement=driver.findElement(By.xpath(AmazonPage.SIGN_IN_BTN));
+        signInButtonElement.click();
+        Util.waitThreadFor(1);
+        String signInText=driver.findElement(By.xpath(AmazonPage.SIGN_IN_TEXT)).getText();
+        Assert.assertEquals("\n" +
+                "            Sign in\n" +
+                "          ",signInText);
+        driver.quit();
+    }
+
+
 
 }
