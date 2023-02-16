@@ -1,46 +1,46 @@
 package by.itacademy.habasaraba.web;
 
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
 
 public class AmazonTest {
-    @Test
-    public void testOpenAmazon(){
-        org.openqa.selenium.WebDriver driver=new SafariDriver();
+    WebDriver driver;
+
+    @Before
+    public void warmUp(){
+        driver=new SafariDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1));
         driver.get(AmazonPage.AMAZON_URL);
+    }
+    @Test
+    public void testOpenAmazon(){
         String actualCopyright=driver.findElement(By.xpath(AmazonPage.AMAZON_COPYRIGHT)).getText();
         Assert.assertEquals("© 1996-2023, Amazon.com, Inc. or its affiliates",actualCopyright);
-        driver.quit();
+
     }
 
     @Test
     public void testOpenAmazonCart(){
-        org.openqa.selenium.WebDriver driver=new SafariDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1));
-        driver.get(AmazonPage.AMAZON_URL);
         WebElement cartButtonElement=driver.findElement(By.xpath(AmazonPage.AMAZON_CART_BTN));
         cartButtonElement.click();
         Util.waitThreadFor(1);
         String emptyButtonText=driver.findElement(By.xpath(AmazonPage.EMPTY_CART_TEXT)).getText();
         Assert.assertEquals("\n" +
                 "Your Amazon Cart is empty\n",emptyButtonText);
-        driver.quit();
+
     }
 
     @Test
     public void testOpenAmazonLoginForm(){
-        org.openqa.selenium.WebDriver driver=new SafariDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1));
-        driver.get(AmazonPage.AMAZON_URL);
         Util.waitThreadFor(1);
         WebElement cartButtonElement=driver.findElement(By.xpath(AmazonPage.AMAZON_CART_BTN));
         cartButtonElement.click();
@@ -52,15 +52,11 @@ public class AmazonTest {
         Assert.assertEquals("\n" +
                 "            Sign in\n" +
                 "          ",signInText);
-        driver.quit();
+
     }
 
     @Test
     public void testAmazonLoginFormWithEmptyCredentials(){
-        org.openqa.selenium.WebDriver driver=new SafariDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1));
-        driver.get(AmazonPage.AMAZON_URL);
         Util.waitThreadFor(1);
         WebElement cartButtonElement=driver.findElement(By.xpath(AmazonPage.AMAZON_CART_BTN));
         cartButtonElement.click();
@@ -75,16 +71,12 @@ public class AmazonTest {
         Util.waitThreadFor(1);
         Assert.assertEquals("\n" +
                 "  Enter your email or mobile phone number\n",enterYourEmail );
-        driver.quit();
+
 
     }
 
     @Test
     public void testAmazonLoginFormWithCredentials(){
-        org.openqa.selenium.WebDriver driver=new SafariDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1));
-        driver.get(AmazonPage.AMAZON_URL);
         Util.waitThreadFor(1);
         WebElement cartButtonElement=driver.findElement(By.xpath(AmazonPage.AMAZON_CART_BTN));
         cartButtonElement.click();
@@ -108,8 +100,12 @@ public class AmazonTest {
         String helloUser=driver.findElement(By.xpath(AmazonPage.HELLO_USER)).getText();
         Util.waitThreadFor(1);
         Assert.assertEquals("Hello, Hanna-Alisa",helloUser );
-        driver.quit();
 
+
+    }
+    @After
+    public void tearDown(){
+        driver.quit();
     }
 
 
